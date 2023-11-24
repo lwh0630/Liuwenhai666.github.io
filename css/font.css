@@ -1,5 +1,5 @@
 @font-face {
-    font-family: mywebfont;
+    font-family: webfont;
     font-display: swap;
-    src: url('/css/alimama.woff') format('woff');
+    src: url('/css/webfont.ttf') format('truetype');
 }
