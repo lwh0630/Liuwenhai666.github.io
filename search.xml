@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>post title with whitespace</title>
+      <link href="/2023/11/24/post-title-with-whitespace/"/>
+      <url>/2023/11/24/post-title-with-whitespace/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/1970/01/01/hello-world/"/>
       <url>/1970/01/01/hello-world/</url>
