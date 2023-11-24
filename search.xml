@@ -4,13 +4,27 @@
   
     
     <entry>
-      <title>post title with whitespace</title>
-      <link href="/2023/11/24/post-title-with-whitespace/"/>
-      <url>/2023/11/24/post-title-with-whitespace/</url>
+      <title>数电-第十三次课</title>
+      <link href="/2023/11/24/%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AC%A1%E8%AF%BE/"/>
+      <url>/2023/11/24/%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AC%A1%E8%AF%BE/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="5-3同步时序逻辑电路的设计"><a href="#5-3同步时序逻辑电路的设计" class="headerlink" title="5.3同步时序逻辑电路的设计"></a>5.3同步时序逻辑电路的设计</h1><ul><li>基本任务：根据给定的功能描述，设计出相应的逻辑电路</li></ul><blockquote><ol><li>根据功能要求建立原始状态图和状态表</li><li>状态化简（消去多余状态）</li><li>状态分配（状态编码）</li><li>求输出函数和激励函数表达式</li><li>根据输出函数和激励函数的表达式画出逻辑电路</li></ol></blockquote><h2 id="一、建立原始状态图和状态表"><a href="#一、建立原始状态图和状态表" class="headerlink" title="一、建立原始状态图和状态表"></a>一、建立原始状态图和状态表</h2><blockquote><p>原始状态图（表）：根据逻辑功能的文字描述，直接建立起来的状态图（表）</p><ul><li>对设计要求的最原始的抽象，是设计电路的初始依据</li></ul></blockquote><h6 id="建立原始状态图和原始状态表要从四个方面着手："><a href="#建立原始状态图和原始状态表要从四个方面着手：" class="headerlink" title="建立原始状态图和原始状态表要从四个方面着手："></a>建立原始状态图和原始状态表要从四个方面着手：</h6><ol><li>确定电路模型（Mealy型还是Moore型）</li><li>设立电路初始状态</li><li>根据需要记忆的信息来增加新的状态</li><li>确定各个时刻电路的输出（在不同输入条件下，要确定输出）</li></ol><p>由于在开始时不知道要描述多少个状态，在原始状态表和原始状态图中一般用字母或者数字表示</p><blockquote><p>模⑤加1加2计数器（记满五个状态后，输出 1 ）</p><ol><li><p>有五个状态设为0，1，2，3，4，初始状态设0</p></li><li><p>| 现态 | 次态，输出 | 次态，输出 |<br>| :—: | :————: | :————: |<br>|      |   x = 0    |   x = 1    |<br>|  0   |    1/0     |    2/0     |<br>|  1   |    2/0     |    4/0     |<br>|  2   |    3/0     |    1/0     |<br>|  3   |    4/0     |    3/0     |<br>|  4   |    0/1     |    0/1     |</p></li><li><p><em>如果初始状态变成 3 ，那么 x = 0时，再回到 3 才输出 1</em></p></li></ol><p>序列检测器（检测 011）</p><h4 id="Mealy"><a href="#Mealy" class="headerlink" title="Mealy"></a>Mealy</h4><ol><li>由于状态数未知，设初始状态为A，A为与检测序列无关的序列</li><li>如果第一位输入1，我们想要的是0，次态还是A</li><li>如果从 A 状态检测到了0，变成状态B</li><li>从 B 检测 0，变为状态 B</li><li>从 B 检测 1，变成状态 C</li><li>从 C 检测 0，变成状态 B</li><li>从 C 检测 1，变成状态 D，输出1</li><li>从 D 检测 0，变成状态 B</li><li>从 D 检测 1，变成状态 A</li></ol><h4 id="Moore"><a href="#Moore" class="headerlink" title="Moore"></a>Moore</h4><ol><li>设 A 为初始状态，与检测序列无关</li><li>B表示检测到了 : 0, C : 01, C : 011</li><li>A/0  B/0  C/0  D/1</li></ol><p>炸弹引爆（检测 1111），炸掉后无次态</p><ol><li>设 A 为初始状态， B，C，D分别表示 1， 11， 111</li><li><img src="C:\Users\Xin-yu du\AppData\Roaming\Typora\typora-user-images\image-20231122092034707.png" alt="image-20231122092034707" style="zoom:50%;" /><img src="C:\Users\Xin-yu du\AppData\Roaming\Typora\typora-user-images\image-20231122092146265.png" alt="image-20231122092146265" style="zoom: 67%;" /></li></ol><p>检测串行输入的 8421BCD码是否合法，不合法输出 1</p><h4 id="Mealy-1"><a href="#Mealy-1" class="headerlink" title="Mealy"></a>Mealy</h4><p><em>串行码字检测和序列检测最大的区别就是串行码字检测时分组进行的，每组的检测过程相同。当码字最后一位输入后，电路转向为初始状态进行下一组检测，因此是Mealy型</em></p><p><img src="C:\Users\Xin-yu du\AppData\Roaming\Typora\typora-user-images\image-20231122094218323.png" alt="image-20231122094218323"></p></blockquote>]]></content>
       
       
+      <categories>
+          
+          <category> 小杜的笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数电 </tag>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -58,6 +72,17 @@
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
