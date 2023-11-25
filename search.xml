@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>测试</title>
+      <link href="/2023/11/25/%E6%B5%8B%E8%AF%95/"/>
+      <url>/2023/11/25/%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p>654646465</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 课堂笔记 </category>
+          
+          <category> 数电 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 课堂笔记 </tag>
+            
+            <tag> 小杜的 </tag>
+            
+            <tag> 数电 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>第十四次课</title>
       <link href="/2023/11/24/%E7%AC%AC%E5%8D%81%E5%9B%9B%E6%AC%A1%E8%AF%BE/"/>
       <url>/2023/11/24/%E7%AC%AC%E5%8D%81%E5%9B%9B%E6%AC%A1%E8%AF%BE/</url>
@@ -91,9 +122,9 @@
     
     
     <entry>
-      <title>友情链接</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -102,9 +133,9 @@
     
     
     <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
