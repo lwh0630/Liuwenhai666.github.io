@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>测试</title>
-      <link href="/2023/11/25/%E6%B5%8B%E8%AF%95/"/>
-      <url>/2023/11/25/%E6%B5%8B%E8%AF%95/</url>
+      <title>第十五次课-状态分配</title>
+      <link href="/2023/11/29/%E7%AC%AC%E5%8D%81%E4%BA%94%E6%AC%A1%E8%AF%BE/"/>
+      <url>/2023/11/29/%E7%AC%AC%E5%8D%81%E4%BA%94%E6%AC%A1%E8%AF%BE/</url>
       
-        <content type="html"><![CDATA[<p>654646465</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="第十五次课"><a href="#第十五次课" class="headerlink" title="第十五次课"></a>第十五次课</h1><h2 id="三、状态分配"><a href="#三、状态分配" class="headerlink" title="三、状态分配"></a>三、状态分配</h2><p>状态分配：状态编码、状态赋值</p><p>状态分配的任务：确定编码长度，确定状态分配方案（即每个状态分配那个编码）</p><p>分配方案决定着实现电路的繁与简</p><p>基本思想：使得卡诺图里的 1 都相邻，便于化简</p><p>相邻法分配原则：</p><ol><li>在相同的输入条件下，具有相同次态的两个现态，应该分配相邻的编码</li><li>在相邻输入条件下，同一现态的不同次态，应该分配相邻的代码</li><li>输出完全相同的现态，应该尽可能分配相邻的代码</li><li>（以上三个有优先级，1 最高，2 次之）此外，一般将原始状态分配成 0 态</li></ol><h2 id="四、确定激励函数和输出函数"><a href="#四、确定激励函数和输出函数" class="headerlink" title="四、确定激励函数和输出函数"></a>四、确定激励函数和输出函数</h2><p>触发器激励表：</p><h2 id="五、电路的“挂起”与自启动"><a href="#五、电路的“挂起”与自启动" class="headerlink" title="五、电路的“挂起”与自启动"></a>五、电路的“挂起”与自启动</h2><p>解决“挂起”方法:</p><ul><li>预置初值</li><li>设计自启动电路</li></ul>]]></content>
       
       
       <categories>
@@ -22,11 +22,11 @@
       
         <tags>
             
-            <tag> 课堂笔记 </tag>
-            
             <tag> 小杜的 </tag>
             
             <tag> 数电 </tag>
+            
+            <tag> 课堂笔记 </tag>
             
         </tags>
       
@@ -35,7 +35,69 @@
     
     
     <entry>
-      <title>第十四次课</title>
+      <title>数据结构-十四周周一最小生成树</title>
+      <link href="/2023/11/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8D%81%E5%9B%9B%E5%91%A8%E5%91%A8%E4%B8%80%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+      <url>/2023/11/27/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8D%81%E5%9B%9B%E5%91%A8%E5%91%A8%E4%B8%80%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</url>
+      
+        <content type="html"><![CDATA[<h1 id="7-3图的遍历"><a href="#7-3图的遍历" class="headerlink" title="7.3图的遍历"></a>7.3图的遍历</h1><h2 id="3-求图的连通分量"><a href="#3-求图的连通分量" class="headerlink" title="3.求图的连通分量"></a>3.求图的连通分量</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Count_Component</span><span class="params">(AdjList g)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> count;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> v = <span class="number">1</span>; v &lt;= g.vexnum; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        visited[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(v = <span class="number">1</span>; v &lt;= g.vexnum; v++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(vistied[i] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            count ++;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;连通分量d%包含一下顶点:&quot;</span>, count);</span><br><span class="line">           dfs(g, v);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;/n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;共有%d个两连通分量&quot;</span>, count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="7-4最小生成树和最短路径"><a href="#7-4最小生成树和最短路径" class="headerlink" title="7.4最小生成树和最短路径"></a>7.4最小生成树和最短路径</h1><h2 id="1-最小生成树"><a href="#1-最小生成树" class="headerlink" title="1.最小生成树"></a>1.最小生成树</h2><p>带权连通图中，总的权值之和最小的带权生成树是最小生成树。也叫最小代价生成树、最小花费生成树</p><blockquote><p>Kruskal算法：</p><ol><li><p>设 T 的初始状态为空寂</p></li><li><p>当 T 中边数小于 n-1 时，做一下工作</p></li></ol><p>  （1）从 E 中选择权值最小的边（v, w），并删除</p><p>  （2）所（v, w）不与 T 中的边一起构成回路，就把边（v, w）加入 T 中去</p></blockquote><h3 id="判断-T-中-边是否构成回路"><a href="#判断-T-中-边是否构成回路" class="headerlink" title="判断 T 中 边是否构成回路"></a>判断 T 中 边是否构成回路</h3><p>（1）并查集（分类）：</p><p>&lt;并&gt;：如果两个集合中两个元素有关系，就进行<strong>并</strong>预算<br>&lt;查&gt;：查找给出的元素是哪个集合的</p><p>判断是否出回路：判断 v，w是否属于同一集合，如果是同一集合就能构成回路</p><p>（2）DFS：判断从 v 是否能到 w，如果能到就能构成回路</p><blockquote><p>Prim算法：</p><ol><li><p>设 V(T) 的出台为空集（V(T)为落在生成树上的顶点集合）</p></li><li><p>在连通图中人选一顶点加入 V(T) 集合中去</p></li><li><p>将下列的步骤重复 n-1 次</p><p>（1）在 i 属于 V(T) ， j 不属于 V(T) 的边中，选择权值最小的便 （i，j）</p><p>（2）将 j 加入到 V(T) 里面去</p><p>（3）输出 i，j 以及 $W_ij$</p></li></ol></blockquote><h2 id="2-最短路径问题"><a href="#2-最短路径问题" class="headerlink" title="2.最短路径问题"></a>2.最短路径问题</h2><h3 id="（1）单源最短路径"><a href="#（1）单源最短路径" class="headerlink" title="（1）单源最短路径"></a>（1）单源最短路径</h3><p>求从 $v_0$ ~ $v_j$ 的最短路径的话，从 $v_0$ 到中间任意结点都是最短路径</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 课堂笔记 </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小杜的 </tag>
+            
+            <tag> 课堂笔记 </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据结构--邻接表</title>
+      <link href="/2023/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%BB%E6%8E%A5%E8%A1%A8/"/>
+      <url>/2023/11/25/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E9%82%BB%E6%8E%A5%E8%A1%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="今天讲图的邻接表"><a href="#今天讲图的邻接表" class="headerlink" title="今天讲图的邻接表"></a>今天讲图的邻接表</h1><h2 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h2><h3 id="邻接表存储"><a href="#邻接表存储" class="headerlink" title="邻接表存储"></a>邻接表存储</h3><p>核心思想：对具有 n 个顶点的图，建立 n 个线性链表来存储该图</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_adjlist</span><span class="params">(AgjListc Gga)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><p>深度遍历dfs，广度遍历bfs</p><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><p>原则：从图中某个指定的顶点出发，先访问顶点 v ，然后从顶点 v 未被访问过的一个邻接点出发，继续进行深度优先遍历，知道与 v 相通的所有顶点都被访问；此时图中若还有未被访问过的顶点，则从另一个未被访问过的顶点出发重复上述过程，直到遍历全图</p><h3 id="广度优先遍历（洪泛算法）"><a href="#广度优先遍历（洪泛算法）" class="headerlink" title="广度优先遍历（洪泛算法）"></a>广度优先遍历（洪泛算法）</h3><p>原则：从 v 出发，先遍历所有与 v 相通的顶点，再对每个顶点广度</p><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>要有一个标记是否访问过的数组</p><h3 id="深度优先搜索代码"><a href="#深度优先搜索代码" class="headerlink" title="深度优先搜索代码"></a>深度优先搜索代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">dfs</span><span class="params">(AdjList g, <span class="type">int</span> v0)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;[%d]&quot;</span>, v0);</span><br><span class="line">    Visited[v0] == <span class="number">1</span>; <span class="comment">// 标记 v0 已经访问过</span></span><br><span class="line">    p = g[v0].link; <span class="comment">// 找 v0 的第一个邻接点</span></span><br><span class="line">    <span class="keyword">while</span>(p -&gt; next != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(Visited[p -&gt; adjvex] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dfs(g, p-&gt;adjvex);</span><br><span class="line">        &#125;</span><br><span class="line">        p = p -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="广度优先查找某点到起始点的路径长度"><a href="#广度优先查找某点到起始点的路径长度" class="headerlink" title="广度优先查找某点到起始点的路径长度"></a>广度优先查找某点到起始点的路径长度</h3><h3 id="为迷宫寻找最短路径"><a href="#为迷宫寻找最短路径" class="headerlink" title="为迷宫寻找最短路径"></a>为迷宫寻找最短路径</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 课堂笔记 </category>
+          
+          <category> 数据结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小杜的 </tag>
+            
+            <tag> 课堂笔记 </tag>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第十四次课-同步时序逻辑电路化简状态</title>
       <link href="/2023/11/24/%E7%AC%AC%E5%8D%81%E5%9B%9B%E6%AC%A1%E8%AF%BE/"/>
       <url>/2023/11/24/%E7%AC%AC%E5%8D%81%E5%9B%9B%E6%AC%A1%E8%AF%BE/</url>
       
@@ -53,11 +115,11 @@
       
         <tags>
             
-            <tag> 课堂笔记 </tag>
-            
             <tag> 小杜的 </tag>
             
             <tag> 数电 </tag>
+            
+            <tag> 课堂笔记 </tag>
             
         </tags>
       
@@ -66,7 +128,38 @@
     
     
     <entry>
-      <title>第十三次课</title>
+      <title>第十四次课-同步时序逻辑电路化简状态</title>
+      <link href="/2023/11/24/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A801/"/>
+      <url>/2023/11/24/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A801/</url>
+      
+        <content type="html"><![CDATA[<h1 id="联邦学习入门-01-Communication-Efficient-Learning-of-Deep-Networks-from-Decentralized-Data"><a href="#联邦学习入门-01-Communication-Efficient-Learning-of-Deep-Networks-from-Decentralized-Data" class="headerlink" title="联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data)"></a>联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data)</h1><p>开山之作: <a href="https://arxiv.org/pdf/1602.05629.pdf">Communication-Efficient Learning of Deep Networks from Decentralized Data</a></p><p>​现代移动设备拥有大量的适合模型学习的数据，基于这些数据训练得到的模型可以极大地提升用户体验。例如，语言模型能提升语音设别的准确率和文本输入的效率，图像模型能自动筛选好的照片。然而，移动设备拥有的丰富的数据经常具有关于用户的敏感的隐私信息且多个移动设备所存储的数据总量很大，这样一来，不适合将各个移动设备的数据上传到数据中心，然后使用传统的方法进行模型训练。作者提出了一个替代方法，这种方法可以基于分布在各个设备上的数据（无需上传到数据中心），然后通过局部计算的更新值进行聚合来学习到一个共享模型。作者定义这种非中心化方法为“联邦学习”。作者针对深度网络的联邦学习任务提出了一种实用方法，这种方法在学习过程中多次对模型进行平均。同时，作者使用了五种不同的模型和四个数据集对这种方法进行了实验验证。实验结果表明，这种方法面对不平衡以及非独立同分布的数据，具有较好的鲁棒性。在这种方法中，通信所产生的资源开销是主要的瓶颈，实验结果表明，与同步随机梯度下降相比，该方法的通信轮次减少了10-100倍。</p><h2 id="联邦学习：联邦学习有如下的属性"><a href="#联邦学习：联邦学习有如下的属性" class="headerlink" title="联邦学习：联邦学习有如下的属性"></a>联邦学习：联邦学习有如下的属性</h2><p>​从多个移动设备中存储的真实数据中进行模型训练比从存储在数据中心的数据中进行模型训练更具优势；<br>由于数据具有隐私，且多个移动设备所存储的数据总量很大，因此不适合将其上传至数据中心再进行模型训练；<br>对于监督学习任务，数据中的标签信息可以从用户与应用程序的交互中推断出来。</p><h2 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h2><p>​相比于中心化数据的训练方法，联邦学习方法在隐私方面具有很大的优势。即使将数据进行匿名化之后，如果联合其他数据依然有可能泄露用户隐私[37]。相反，联邦学习过程中的信息传输是为了改进一个模型的最小的必要信息（隐私保护的强度依赖于更新值）^1。这些更新值本身是“短暂的”，即它们所包含的信息量不高于原始数据所含的信息量（通过数据处理不等式说明），并且一般是更新值包含很少的信息量。由于聚合算法不需要关于更新值的来源信息，所以，不需要通过混合网络（例如Tor）来识别元数据或基于一个可信的第三方就可以传输更新值。在本文末尾，作者简要讨论了一下将联邦学习与多方安全计算和差分隐私进行融合的可能性。</p><h2 id="联邦优化"><a href="#联邦优化" class="headerlink" title="联邦优化"></a>联邦优化</h2><p>​作者将联邦学习中隐含的优化问题称为联邦优化，其与分布式优化有着密切的联系。较之于典型的分布式优化问题，联邦优化有很多不同的地方：</p><ul><li><p><strong>非独立同分布</strong>：一个客户端存储的训练数据主要是基于一个特定用户在使用该移动设备的过程中产生的，因此，任何一个用户的本地数据集都不能表示整体分布。</p></li><li><p><strong>非平衡</strong>：类似地，一些用户可能对某项服务或某个应用软件使用比其他用户频繁，则在该客户端上将产生大量的训练数据。</p></li><li><p><strong>大规模分布</strong>：作者预计参与优化的客户端数量将远远大于所有客户端所拥有的数据量总量的平均数。即：若设有$D$个客户端参与优化，每个客户端的数据量分布为$N_i, i&#x3D;1,2,…,D$，则有 $D \gg \frac{1}{D}\sum_{i&#x3D;1}^D{N_i}$。</p></li><li><p><strong>通信受限</strong>：移动设备具有经常掉线、传输速率低以及通信成本高的特点</p></li></ul><p>​本文，作者重点关注优化任务中的非独立同分布和不平衡的问题，以及通信受限的临界属性。一个可以部署的联邦优化系统必须能够解决很多问题：</p><ol><li>由于数据被添加或删除导致客户端数据集发生了变动；</li><li>客户端的可用性与其存储的数据分布具有复杂的关系（例如，说美式英语的人使用的手机与说英式英语的手机，这两个客户端具有可用性的时间段不一样）；</li><li>可能会存在从来不响应的客户端或着发送已损毁的更新值的客户端；</li></ol><p>​这些问题超出了本文的研究范围。作者在一个人为控制的实验环境下进行实验，但是这种实验环境仍然存在客户端可用性和数据非平衡以及非独立同分布的关键问题。作者假设一个同步更新框架，通过多轮通信进行更新。现有固定的$K$个客户端，每个客户端拥有一个固定的本地数据集。每轮更新的开始，随机选择$C$个客户端，并且服务器给每个客户端发送现有的全局算法状态（例如算法状态可以是当前全局模型的参数值）。在每轮学习过程中仅选用一部分客户端是为了提升性能，因为实验表明，<strong>当客户端超过一定数量后学习性能会下降。每一个被选择的客户端基于本地存储的数据以及全局状态进行计算更新，然后将更新后的算法状态发送给服务器。服务器利用客户端发送回来的算法状态对全局状态进行更新，并且重复这个过程。</strong></p><p>​虽然作者关注于非凸的神经网络目标函数，但作者认为该算法适用于以下形式的目标函数，该目标函数为任何有限个目标函数的和：<br>$$<br>\begin{align}<br>\min_{w\in{\R^{d}}}f(w) \qquad wh &amp; ere\quad f(w)\overset{def}{&#x3D;} \frac{1}{n}\sum^n_{i&#x3D;1}f_i(w)<br>\end{align}<br>$$<br>对于一个机器学习问题，设$f_i(w)&#x3D;loss(x_i,y_i;w)$则其表示给定模型参数$w$的条件下，关于第$i$个样本$(x_i, y_i)$的损失。我们假设有$K$个客户端,$\mathcal{P}<em>k$表示第$k$个客户端的数据点的索引集，$n_k &#x3D; |\mathcal{P}<em>k|$为第$k$个客户端所拥有的数据量。上述目标函数（1）可以重新写为：<br>$$<br>\begin{align}<br>f(w)&#x3D;\sum^{K}</em>{k&#x3D;1} \frac{n_k}{n}F_k(w) \qquad wh &amp; ere\qquad F_k(w)&#x3D;\frac{1}{n_k}\sum</em>{i \in \mathcal{p_k}}f_i(w)<br>\end{align}<br>$$<br>其中 $\begin{align}<br>n &#x3D; \sum^{K}_{k&#x3D;1}n_k\end{align}$</p><p>​如果将全部数据集随机均匀地分配到每个客户端中，即所有的$\mathcal{P}<em>k$均为独立同分布的数据集，则有 $\mathbb{E}</em>{p_k}[F_k(w)] &#x3D; f(w)$，等式左边表示的是关于分配给每个客户端的数据上的平均损失的期望。这是分布式优化算法采用的典型的独立同分布假设；作者考虑的是不满足独立同分布假设的情况（即,$F_k$是一个对$f$任意的糟糕的近似）。</p><p>​在数据中心存储的优化中，通信开销相对较小，计算开销占主导地位，最近很多研究工作强调使用GPU可以降低计算开销。相反，在联邦优化中，通信开销占主导地位—作者将上传带宽限制为1MB&#x2F;s或更少。此外，客户段通常只有在充电、接通电源和未计费的Wi-Fi连接时才会参与优化。此外，作者希望每个客户端每天仅仅参与一小部分轮次的训练。另一方面，因为相比于全部数据，任何一个单一设备所具有的数据量较少，且现代手机有相对快的处理器（包括GPU），所以对于很多类型的模型，较之于通信开销，计算不是一个主要问题。因此，本文目的是使用额外的计算来减少训练模型所需通信的轮次。有两种基本的额外计算方法：</p><ol><li>提高并行度，每两轮通信间，使用更多的独立工作的客户端；</li><li>增加每个客户端的计算：每个客户端除了执行一个简单的计算（比如计算梯度），还要在每两轮通信间进行更复杂的计算；</li></ol><p>​作者研究了这两种方法，但是一旦使用了最低级别的客户端并行性，则主要通过在每个客户端上添加了更多的计算来实验加速（这里的加速指的是减少了通信轮次）。</p><p>​<strong>相关工作</strong>：McDonald等人[^1]研究了通过迭代平均本地训练的模型来对感知机进行分布式训练，Povey等人[^2]研究了语音识别深度神经网络的分布式训练，Zhang等人[^3]研究了使用“软”平均的异步训练方法。这些研究工作仅考虑了数据中心化背景（最多有16个工作节点，以及使用了快速传输网络）下的任务，并没有考虑具有数据不平衡且非独立同分布特点的联邦学习任务。作者使用这种风格（即迭代平均本地训练的模型）的算法来解决联邦学习问题，并且进行了适当的实验评估，基于这样的研究，提出与数据中心化设置中不同的问题，并且在联邦学习中这种算法需要结合不同的方法。</p><p>​与本文的研究动机相似，Neverova等人[^4]也讨论了保护设备中的用户数据的隐私的优点。Shokri和Shmatikov的研究工作与本文研究工作有一些相似之处：他们关注于训练深度网络，<strong>强调隐私的重要性以及通过在每一轮通信中仅共享一部分参数，进而降低通信开销</strong>；然而，他们也没有考虑数据的不平衡以及非独立同分布性，并且他们的研究工作缺乏实验评估。</p><p>​在“凸”背景下，分布式优化和评估的问题被广泛研究，并且一些算法特别关注了通信效率。除了凸假设，已有的研究研究工作一般要求客户端数量远小于每个客户端的样本数量，这样在各个客户端之间数据（每个客户端的数据量相同）是独立同分布的。这些假设在联邦优化中均不成立。分布式随机梯度下降的异步形式也被应用于神经网络的训练中，例如：Dean等人[^5]的研究工作，但是这些方法要求在联邦学习中进行大量的更新。分布式共识算法[41]弱化了独立同分布假设，但是仍然没有解决在通信受限的条件下，大量客户端进行联邦学习的问题。</p><p>​作者认为（参数化）算法就是简单的one-shot（一次性）平均，其中每个客户端使得模型在本地数据集上的损失最小，通过平均这些模型来产生最终的全局模型。这种方法已经在凸情况以及数据独立同分布背景下被广泛研究，并且最坏的情况是，全局模型没有比单一客户端训练的模型更好。</p><h2 id="联邦平均算法"><a href="#联邦平均算法" class="headerlink" title="联邦平均算法"></a>联邦平均算法</h2><p>​最近深度学习取得巨大成功在很大程度上依赖于随机梯度下降优化算法及其变种；事实上，在很多应用方面的进步可以理解为，采用了易于使用梯度下降进行优化的模型结构（以及损失函数）[^6]。因此，作者在构建联邦优化算法时自然地使用了随机梯度下降。</p><p>​随机梯度下降天然地可以被用于联邦优化，因为，每轮通信完成一次基于一个批次数据的梯度计算（在被随机选择的客户端上进行）。这种方法具有很高的计算效率，但是若想学习出好的模型，需要大量轮次的训练（甚至即使使用了一个如批次归一化的高级方法，Ioffe和Szegedy[^7]构建手写数字识别的模型训练了50000轮，每次训练使用60个样本），作者在CIFAR-10数据集上的实验考虑了该基准（即训练出好的模型所需要的训练次数）。</p><p>在联邦框架下，更多用户的参与几乎不会增加时间消耗，所以作者使用大批量同步随机梯度下降法做为对比的基准，因为Chen等人[8]的实验验证了该方法在数据中心化学习框架下可以达到很好的效果，且优于异步方法。为了在联邦学习中应用该方法，作者每轮选择$C$比例的客户端，在这些客户端上基于全部数据计算损失函数的梯度值。因此，$C$控制了全局批次大小，如果$C&#x3D;1$，那么意味着全批次梯度下降。作者称这种基线算法为联邦随机梯度下降。</p><p>[^1]:Ryan McDonald, Keith Hall, and Gideon Mann. Distributed training strategies for the structured perceptron. In NAACL HLT, 2010.<br>[^2]:Daniel Povey, Xiaohui Zhang, and Sanjeev Khudanpur.Parallel training of deep neural networks with natural<br>gradient and parameter averaging. In ICLR Workshop Track, 2015.<br>[^3]:Sixin Zhang, Anna E Choromanska, and Yann LeCun.Deep learning with elastic averaging sgd. In NIPS. 2015.<br>[^4]:Natalia Neverova, Christian Wolf, Griffin Lacey, Lex Fridman, Deepak Chandra, Brandon Barbello, and Graham W. Taylor. Learning human identity from motion patterns. IEEE Access, 4:1810–1820, 2016.<br>[^5]:Jeffrey Dean, Greg S. Corrado, Rajat Monga, KaiChen, Matthieu Devin, Quoc V. Le, Mark Z. Mao, Marc’Aurelio Ranzato, Andrew Senior, Paul Tucker, Ke Yang, and Andrew Y. Ng. Large scale distributed deep networks. In NIPS, 2012.<br>[^6]: Ian Goodfellow, Yoshua Bengio, and Aaron Courville. Deep learning. Book in preparation for MIT Press, 2016.<br>[^7]:Sergey Ioffe and Christian Szegedy. Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 毕业设计 </category>
+          
+          <category> 论文阅读 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 毕业设计 </tag>
+            
+            <tag> 小刘的 </tag>
+            
+            <tag> 联邦学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第十三次课-同步时序逻辑电路初始状态图/表</title>
       <link href="/2023/11/24/%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AC%A1%E8%AF%BE/"/>
       <url>/2023/11/24/%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AC%A1%E8%AF%BE/</url>
       
@@ -84,11 +177,75 @@
       
         <tags>
             
+            <tag> 小杜的 </tag>
+            
+            <tag> 数电 </tag>
+            
             <tag> 课堂笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vhdl秒表代码注释-第一部分</title>
+      <link href="/2023/11/20/vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/"/>
+      <url>/2023/11/20/vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="vhdl秒表代码"><a href="#vhdl秒表代码" class="headerlink" title="vhdl秒表代码"></a>vhdl秒表代码</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><h3 id="architecture"><a href="#architecture" class="headerlink" title="architecture"></a>architecture</h3><p>结构体描述设计实体内部的特性。结构体的书写格式如下：</p><blockquote><p>architecture 结构名字 of 实体名 is:<br>    内部信号、常量、数据类型、函数等的定义;<br>begin:<br>    若干并行执行语句，具体描述结构体的功能和行为。<br>end 结构体名;</p></blockquote><ul><li>结构体内要求使用<strong>并行执行语句</strong>。</li><li>类似 <strong>if</strong> 之类的顺序执行语句，只要将它们放在进程语句 <strong>process</strong> 语句之内即可。process语句是并行执行语句。</li></ul><h3 id="library"><a href="#library" class="headerlink" title="library"></a>library</h3><blockquote><p>库用于存放预先编译好的程序包</p><p>程序包中定义了数据结构体、操作逻辑和原件等。主要是声明在设计或者实体中将用到的常数，数据类型，原件，子程序等。</p></blockquote><h3 id="signal信号"><a href="#signal信号" class="headerlink" title="signal信号"></a>signal信号</h3><blockquote><p>信号表示逻辑门的输入或者输出</p><p>类似于连接线，也可以表达存储元件的状态。</p><p>信号通常在结构体，程序包和实体中说明</p></blockquote><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 信号定义语句： signal 信号名 : 数据类型 := 初始值</span></span><br><span class="line"><span class="keyword">signal</span> clock : <span class="built_in">bit</span> = <span class="string">&#x27;0&#x27;</span>; <span class="comment">-- 定义时钟信号的数据类型，初始值为0</span></span><br><span class="line"><span class="keyword">signal</span> count : <span class="built_in">BIT_VECTOR</span>(<span class="number">3</span> <span class="keyword">DOWNTO</span> <span class="number">0</span>); <span class="comment">-- 定义 count 为四位位矢量</span></span><br></pre></td></tr></table></figure><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 信号赋值语句： 目标信号名 &lt;= 表达式;</span></span><br><span class="line">x &lt;= <span class="number">9</span>;</span><br><span class="line">Z &lt;= x <span class="keyword">after</span> <span class="number">5</span> ns; <span class="comment">-- 在 5ns 后将 x 赋值给 Z</span></span><br></pre></td></tr></table></figure><h3 id="process"><a href="#process" class="headerlink" title="process"></a>process</h3><p>​process语句通常称之为进程语句，本质上他描述了一个功能独立的电路块；</p><p>​process语句是一个并行执行的语句，但是process内部是顺序执行语句</p><blockquote><p>[ 进程名: ] process (敏感信号1，敏感信号2，… ，敏感信号n)<br>    [ 若干变量说明语句 ]<br>    begin<br>    [ 若干顺序说明语句]<br>    end process [ 进程名 ];</p></blockquote><ul><li>由于结构体中各并行执行语句都是独立的电路块，因此不允许两个或者两个以上的并行语句对对同一个信号赋值。</li></ul><h3 id="variable"><a href="#variable" class="headerlink" title="variable"></a>variable</h3><blockquote><p>变量只能在进程语句、函数语句和过程语句结构中使用。变量的赋值是直接的，非预制的，分配给变量的值立即成为当前值，变量不能表达“连线”或者存储元件，不能设置传输延迟量</p></blockquote><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 变量定义语句： variable 变量名 ：数据类型 := 初始值；</span></span><br><span class="line"><span class="keyword">variable</span> count : <span class="built_in">integer</span> <span class="number">0</span> <span class="keyword">to</span> <span class="number">255</span> := <span class="number">20</span>;</span><br><span class="line"><span class="comment">-- 定义变量 count 整数变量，变化范围是 2~255，出初始值是 20；</span></span><br></pre></td></tr></table></figure><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 变量赋值语句： 变量名 := 表达式</span></span><br><span class="line">x := <span class="number">10.0</span>;</span><br><span class="line">y = <span class="number">1.5</span> + x;</span><br><span class="line">A(<span class="number">3</span> <span class="keyword">to</span> <span class="number">6</span>) := (<span class="string">&quot;1101&quot;</span>); <span class="comment">-- 一个矢量的赋值</span></span><br></pre></td></tr></table></figure><h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><p>​VHDL 是强定义类型语言，不同类型的数据不能进行运算和直接赋值</p><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 类型表记法</span></span><br><span class="line"><span class="keyword">variable</span> A : <span class="built_in">integer</span>;</span><br><span class="line"><span class="keyword">variable</span> B : real;</span><br><span class="line"><span class="comment">-- real 实数</span></span><br><span class="line">A = <span class="built_in">integer</span>(B);</span><br><span class="line">B = real(A);</span><br></pre></td></tr></table></figure><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 函数法</span></span><br><span class="line">Conv_Integer(A);</span><br><span class="line"><span class="comment">-- 由 std_logic 转换为 integer 类型，在 std_logic_unsigned 包中。</span></span><br></pre></td></tr></table></figure><h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><h3 id="case"><a href="#case" class="headerlink" title="case"></a>case</h3><blockquote><p>case 语句是顺序执行语句，常用于描述总线的行为、编译器和译码器的结构以及状态机等等。case 语句的可读性好，非常简洁4</p></blockquote><blockquote><p>case 条件表达式 is:<br>when 条件表达式值1 &#x3D;&gt;<br>    若干顺序执行语句<br>when 条件表达式值2 &#x3D;&gt;<br>    若干顺序执行语句<br>……<br>when 条件表达式值n &#x3D;&gt;<br>    若干顺序执行语句<br>when others &#x3D;&gt;<br>    若干顺序执行语句<br>end case;</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 花自向阳开 </category>
+          
+          <category> 数电VHDL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 花自向阳开 </tag>
             
             <tag> 小杜的 </tag>
             
             <tag> 数电 </tag>
+            
+            <tag> VHDL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown基本使用</title>
+      <link href="/2023/10/25/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+      <url>/2023/10/25/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="markdown基本使用"><a href="#markdown基本使用" class="headerlink" title="markdown基本使用"></a>markdown基本使用</h1><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h2><ul><li><p>标题有一级标题到六级标题</p></li><li><p>代码形式</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">一级标题：<span class="comment"># + &#x27;内容&#x27;</span></span><br><span class="line">二级标题：<span class="comment">## + &#x27;内容&#x27;</span></span><br><span class="line">三级标题：<span class="comment">### + &#x27;内容&#x27;</span></span><br><span class="line">……</span><br><span class="line">六级标题：<span class="comment">###### + &#x27;内容&#x27;</span></span><br></pre></td></tr></table></figure></li><li><p>注意 # 和 ’内容‘ 之间有空格</p></li><li><p>显示样式</p><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></li></ul><h2 id="2-字体"><a href="#2-字体" class="headerlink" title="2. 字体"></a>2. 字体</h2><h3 id="斜体："><a href="#斜体：" class="headerlink" title="斜体："></a>斜体：</h3><ul><li><p>代码形式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*斜体*</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><p><em>斜体</em></p></li></ul><h3 id="加粗："><a href="#加粗：" class="headerlink" title="加粗："></a>加粗：</h3><ul><li><p>代码形式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**加粗**</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><p><strong>加粗</strong></p></li></ul><h3 id="加粗斜体："><a href="#加粗斜体：" class="headerlink" title="加粗斜体："></a>加粗斜体：</h3><ul><li><p>代码形式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">***加粗斜体***</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><p><em><strong>加粗斜体</strong></em></p></li></ul><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~删除~~</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><p><del>删除</del></p></li></ul><h2 id="3-引用"><a href="#3-引用" class="headerlink" title="3. 引用"></a>3. 引用</h2><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 引用（有空格）</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><blockquote><p>引用</p></blockquote></li></ul><h2 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4. 分割线"></a>4. 分割线</h2><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">or </span><br><span class="line">***</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p></li></ul><hr><hr><hr><hr><h2 id="5-图片"><a href="#5-图片" class="headerlink" title="5. 图片"></a>5. 图片</h2><h3 id="本地图片："><a href="#本地图片：" class="headerlink" title="本地图片："></a>本地图片：</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![自命名照片的名字](照片的地址)</span><br></pre></td></tr></table></figure></li><li><p>显示样式：<br><img src="/F16D808895D92E6ED21170D8F287122A.jpg" alt="图片"></p></li></ul><h3 id="网络图片："><a href="#网络图片：" class="headerlink" title="网络图片："></a>网络图片：</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![自命名照片的名字](照片的链接)</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p></li></ul><p><img src="https://th.bing.com/th/id/R.466bb61cd7cf4e8b7d9cdf645add1d6e?rik=YRZKRLNWLutoZA&riu=http://222.186.12.239:10010/wmxs_161205/002.jpg&ehk=WEy01YhyfNzzQNe1oIqxwgbTnzY7dMfmZZHkqpZB5WI=&risl=&pid=ImgRaw&r=0" alt="002"></p><h2 id="6-超链接"><a href="#6-超链接" class="headerlink" title="6. 超链接"></a>6. 超链接</h2><ul><li><p>代码形式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[自命名链接的名字](链接)</span><br></pre></td></tr></table></figure></li><li><p>显示样式：<br><a href="?????">链接</a></p></li></ul><h2 id="7-列表"><a href="#7-列表" class="headerlink" title="7. 列表"></a>7. 列表</h2><h3 id="有序列表："><a href="#有序列表：" class="headerlink" title="有序列表："></a>有序列表：</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 001</span><br><span class="line">2. 002</span><br><span class="line">3. 003</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><ol><li>001</li><li>002</li><li>003</li></ol></li></ul><h3 id="无序列表："><a href="#无序列表：" class="headerlink" title="无序列表："></a>无序列表：</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 001</span><br><span class="line">- 002</span><br><span class="line">- 003</span><br><span class="line">- </span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><ul><li>001</li><li>002</li><li>003</li><li></li></ul></li></ul><h2 id="8-表格"><a href="#8-表格" class="headerlink" title="8. 表格"></a>8. 表格</h2><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">| name  | age  | sex  |</span><br><span class="line">| ----- | ---- | ---- |</span><br><span class="line">| Jerry | 19   | 女   |</span><br><span class="line">| Tom   | 21   | 男   |</span><br><span class="line">| ……    | ……   | ……   |</span><br><span class="line">| ……    | ……   |      |</span><br><span class="line">| ……    |      |      |</span><br><span class="line">|       |      |      |</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p></li></ul><table><thead><tr><th>name</th><th>age</th><th>sex</th></tr></thead><tbody><tr><td>Jerry</td><td>19</td><td>女</td></tr><tr><td>Tom</td><td>21</td><td>男</td></tr><tr><td>……</td><td>……</td><td>……</td></tr><tr><td>……</td><td>……</td><td></td></tr><tr><td>……</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></tbody></table><ul><li>快捷键： Ctrl + T</li></ul><h2 id="8-代码"><a href="#8-代码" class="headerlink" title="8.代码"></a>8.代码</h2><h3 id="单行代码："><a href="#单行代码：" class="headerlink" title="单行代码："></a>单行代码：</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`hello`</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><p><code>hello</code></p></li></ul><h3 id="多行代码："><a href="#多行代码：" class="headerlink" title="多行代码："></a>多行代码：</h3><ul><li><p>代码样式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">``` java</span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;Hello and welcome!&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (int i = 1; i &lt;= 5; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure></li><li><p>显示样式：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.print(<span class="string">&quot;Hello and welcome!&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;i = &quot;</span> + i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 花自向阳开 </category>
+          
+          <category> markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 花自向阳开 </tag>
+            
+            <tag> 小杜的 </tag>
+            
+            <tag> markdown </tag>
             
         </tags>
       
@@ -104,7 +261,7 @@
       <link href="/Agreement/index.html"/>
       <url>/Agreement/index.html</url>
       
-        <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2023</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-23</p></div></div><div class='timeline-item-content'><pre><code>x:1800y:12z:3m:1</code></pre></div></div></div>]]></content>
+        <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2023</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-29</p></div></div><div class='timeline-item-content'><pre><code>x:2500 小杜乖乖走路+700y:13 z:7 偷看老公的纸条-1 要求老公陪买实验报告-1m:1小杜发夹购买券:3</code></pre></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-27</p></div></div><div class='timeline-item-content'><pre><code>x:1800y:13 小刘乖乖吃饭z:9m:1小杜发夹购买券:3</code></pre></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-26</p></div></div><div class='timeline-item-content'><pre><code>x:1800y:11 支使老婆接水-1z:9 买发夹-1 走路+7m:1</code></pre></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-23</p></div></div><div class='timeline-item-content'><pre><code>x:1800y:12z:3m:1</code></pre></div></div></div>]]></content>
       
     </entry>
     
@@ -116,17 +273,6 @@
       <url>/about/index.html</url>
       
         <content type="html"><![CDATA[<div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2023</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-24</p></div></div><div class='timeline-item-content'><p>带若若第一次吃海底捞</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-23</p></div></div><div class='timeline-item-content'><p>小杜和小刘小破站正式运行</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-23</p></div></div><div class='timeline-item-content'><p>小杜和小刘的第一个’宝宝’ 杜沃若 出生</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-13</p></div></div><div class='timeline-item-content'><p>小刘给小杜编毛毯</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-10</p></div></div><div class='timeline-item-content'><p>通关《双人成行》</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>05-20</p></div></div><div class='timeline-item-content'><p>小杜给小刘捡了一大捧茉莉花花</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>04-23</p></div></div><div class='timeline-item-content'><p>小刘给小杜做郁金香蛋糕</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>04-15</p></div></div><div class='timeline-item-content'><p>看郁金香and做戒指</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>04-14</p></div></div><div class='timeline-item-content'><p>小刘陪小杜修手机</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>03-25</p></div></div><div class='timeline-item-content'><p>铃芽之旅</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>03-12</p></div></div><div class='timeline-item-content'><p>小杜四级考试（小刘六级）</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>03-03</p></div></div><div class='timeline-item-content'><p>陪小刘看午夜场电影</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>03-02</p></div></div><div class='timeline-item-content'><p>小杜的新身份–小刘的老婆</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>03-01</p></div></div><div class='timeline-item-content'><p>小刘晚上陪小杜写物理实验</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>03-01</p></div></div><div class='timeline-item-content'><p>小刘凌晨偷偷表白</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>02-28</p></div></div><div class='timeline-item-content'><p>小刘带小杜吃驴肉火烧</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>02-28</p></div></div><div class='timeline-item-content'><p>小杜给小刘带绿色的花花</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>02-26</p></div></div><div class='timeline-item-content'><p>小刘带小杜看电影</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>02-23</p></div></div><div class='timeline-item-content'><p>给小刘送小蛋糕</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>02-11</p></div></div><div class='timeline-item-content'><p>小杜和小刘的开学会面</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-21</p></div></div><div class='timeline-item-content'><p>小刘给小杜发漂亮的新年红包</p></div></div></div><div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2022</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>12-08</p></div></div><div class='timeline-item-content'><p>小杜把小刘的智能车车寄到河南</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-30</p></div></div><div class='timeline-item-content'><p>小杜把小刘的智能车车带回山东</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>11-18</p></div></div><div class='timeline-item-content'><p>疫情来袭</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>10-22</p></div></div><div class='timeline-item-content'><p>小刘和小杜的遇见</p></div></div></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分类</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -147,6 +293,17 @@
       <title>标签</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
