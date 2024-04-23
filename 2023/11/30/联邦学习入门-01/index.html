@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data) | 喜欢小杜</title><meta name="author" content="小杜老公"><meta name="copyright" content="小杜老公"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data) 开山之作: Communication-Efficient Learning of Deep Networks from Decentralized Data 现代移动设备拥有大量的适合模型学习的数据，基于这些数据训练得到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data)">
+<meta property="og:url" content="http://xinyudu.cn/2023/11/30/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-01/index.html">
+<meta property="og:site_name" content="喜欢小杜">
+<meta property="og:description" content="联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data) 开山之作: Communication-Efficient Learning of Deep Networks from Decentralized Data 现代移动设备拥有大量的适合模型学习的数据，基于这些数据训练得到">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://xinyudu.cn/img/default_cover.jpg">
+<meta property="article:published_time" content="2023-11-30T09:32:29.000Z">
+<meta property="article:modified_time" content="2024-04-23T09:53:04.313Z">
+<meta property="article:author" content="小杜老公">
+<meta property="article:tag" content="小刘的">
+<meta property="article:tag" content="毕业设计">
+<meta property="article:tag" content="联邦学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://xinyudu.cn/img/default_cover.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://xinyudu.cn/2023/11/30/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-01/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 小杜老公","link":"链接: ","source":"来源: 喜欢小杜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data)',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-23 17:53:04'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/head.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Agreement/"><i class="fa-fw fa-solid fa-handshake"></i><span> 约定</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_cover.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="喜欢小杜"><img class="site-icon" src="/img/nav.png"/><span class="site-name">喜欢小杜</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Agreement/"><i class="fa-fw fa-solid fa-handshake"></i><span> 约定</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-30T09:32:29.000Z" title="发表于 2023-11-30 17:32:29">2023-11-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-23T09:53:04.313Z" title="更新于 2024-04-23 17:53:04">2024-04-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>22分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="联邦学习入门-01(Communication-Efficient Learning of Deep Networks from Decentralized Data)"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1
+id="联邦学习入门-01communication-efficient-learning-of-deep-networks-from-decentralized-data">联邦学习入门-01(Communication-Efficient
+Learning of Deep Networks from Decentralized Data)</h1>
+<p>开山之作: <a
+target="_blank" rel="noopener" href="https://arxiv.org/pdf/1602.05629.pdf">Communication-Efficient
+Learning of Deep Networks from Decentralized Data</a></p>
+<p>现代移动设备拥有大量的适合模型学习的数据，基于这些数据训练得到的模型可以极大地提升用户体验。例如，语言模型能提升语音设别的准确率和文本输入的效率，图像模型能自动筛选好的照片。然而，移动设备拥有的丰富的数据经常具有关于用户的敏感的隐私信息且多个移动设备所存储的数据总量很大，这样一来，不适合将各个移动设备的数据上传到数据中心，然后使用传统的方法进行模型训练。作者提出了一个替代方法，这种方法可以基于分布在各个设备上的数据（无需上传到数据中心），然后通过局部计算的更新值进行聚合来学习到一个共享模型。作者定义这种非中心化方法为“联邦学习”。作者针对深度网络的联邦学习任务提出了一种实用方法，这种方法在学习过程中多次对模型进行平均。同时，作者使用了五种不同的模型和四个数据集对这种方法进行了实验验证。实验结果表明，这种方法面对不平衡以及非独立同分布的数据，具有较好的鲁棒性。在这种方法中，通信所产生的资源开销是主要的瓶颈，实验结果表明，与同步随机梯度下降相比，该方法的通信轮次减少了10-100倍。</p>
+<h2
+id="联邦学习联邦学习有如下的属性">联邦学习：联邦学习有如下的属性</h2>
+<p>从多个移动设备中存储的真实数据中进行模型训练比从存储在数据中心的数据中进行模型训练更具优势；
+由于数据具有隐私，且多个移动设备所存储的数据总量很大，因此不适合将其上传至数据中心再进行模型训练；
+对于监督学习任务，数据中的标签信息可以从用户与应用程序的交互中推断出来。</p>
+<h2 id="隐私">隐私</h2>
+<p>相比于中心化数据的训练方法，联邦学习方法在隐私方面具有很大的优势。即使将数据进行匿名化之后，如果联合其他数据依然有可能泄露用户隐私。相反，联邦学习过程中的信息传输是为了改进一个模型的最小的必要信息（隐私保护的强度依赖于更新值）。这些更新值本身是“短暂的”，即它们所包含的信息量不高于原始数据所含的信息量（通过数据处理不等式说明），并且一般是更新值包含很少的信息量。由于聚合算法不需要关于更新值的来源信息，所以，不需要通过混合网络（例如Tor）来识别元数据或基于一个可信的第三方就可以传输更新值。在本文末尾，作者简要讨论了一下将联邦学习与多方安全计算和差分隐私进行融合的可能性。</p>
+<h2 id="联邦优化">联邦优化</h2>
+<p>作者将联邦学习中隐含的优化问题称为联邦优化，其与分布式优化有着密切的联系。较之于典型的分布式优化问题，联邦优化有很多不同的地方：</p>
+<ul>
+<li><p><strong>非独立同分布</strong>：一个客户端存储的训练数据主要是基于一个特定用户在使用该移动设备的过程中产生的，因此，任何一个用户的本地数据集都不能表示整体分布。</p></li>
+<li><p><strong>非平衡</strong>：类似地，一些用户可能对某项服务或某个应用软件使用比其他用户频繁，则在该客户端上将产生大量的训练数据。</p></li>
+<li><p><strong>大规模分布</strong>：作者预计参与优化的客户端数量将远远大于所有客户端所拥有的数据量总量的平均数。即：若设有<span
+class="math inline">\(D\)</span>个客户端参与优化，每个客户端的数据量分布为<span
+class="math inline">\(N_i, i=1,2,...,D\)</span>，则有 <span
+class="math inline">\(D \gg
+\frac{1}{D}\sum_{i=1}^D{N_i}\)</span>。</p></li>
+<li><p><strong>通信受限</strong>：移动设备具有经常掉线、传输速率低以及通信成本高的特点</p></li>
+</ul>
+<p>本文，作者重点关注优化任务中的非独立同分布和不平衡的问题，以及通信受限的临界属性。一个可以部署的联邦优化系统必须能够解决很多问题：</p>
+<ol type="1">
+<li>由于数据被添加或删除导致客户端数据集发生了变动；</li>
+<li>客户端的可用性与其存储的数据分布具有复杂的关系（例如，说美式英语的人使用的手机与说英式英语的手机，这两个客户端具有可用性的时间段不一样）；</li>
+<li>可能会存在从来不响应的客户端或着发送已损毁的更新值的客户端；</li>
+</ol>
+<p>这些问题超出了本文的研究范围。作者在一个人为控制的实验环境下进行实验，但是这种实验环境仍然存在客户端可用性和数据非平衡以及非独立同分布的关键问题。作者假设一个同步更新框架，通过多轮通信进行更新。现有固定的<span
+class="math inline">\(K\)</span>个客户端，每个客户端拥有一个固定的本地数据集。每轮更新的开始，随机选择<span
+class="math inline">\(C\)</span>个客户端，并且服务器给每个客户端发送现有的全局算法状态（例如算法状态可以是当前全局模型的参数值）。在每轮学习过程中仅选用一部分客户端是为了提升性能，因为实验表明，<strong>当客户端超过一定数量后学习性能会下降。每一个被选择的客户端基于本地存储的数据以及全局状态进行计算更新，然后将更新后的算法状态发送给服务器。服务器利用客户端发送回来的算法状态对全局状态进行更新，并且重复这个过程。</strong></p>
+<p>虽然作者关注于非凸的神经网络目标函数，但作者认为该算法适用于以下形式的目标函数，该目标函数为任何有限个目标函数的和：
+<span class="math display">\[
+\begin{align}
+\min_{w\in{\mathbb{R}^{d}}}f(w) \qquad wh &amp; ere\quad
+f(w)\overset{def}{=} \frac{1}{n}\sum^n_{i=1}f_i(w)
+\end{align}
+\]</span> 对于一个机器学习问题，设<span
+class="math inline">\(f_i(w)=loss(x_i,y_i;w)\)</span>则其表示给定模型参数<span
+class="math inline">\(w\)</span>的条件下，关于第<span
+class="math inline">\(i\)</span>个样本<span class="math inline">\((x_i,
+y_i)\)</span>的损失。我们假设有<span
+class="math inline">\(K\)</span>个客户端,<span
+class="math inline">\(\mathcal{P}_k\)</span>表示第<span
+class="math inline">\(k\)</span>个客户端的数据点的索引集，<span
+class="math inline">\(n_k = |\mathcal{P}_k|\)</span>为第<span
+class="math inline">\(k\)</span>个客户端所拥有的数据量。上述目标函数（1）可以重新写为：
+<span class="math display">\[
+\begin{align}
+f(w)=\sum^{K}_{k=1} \frac{n_k}{n}F_k(w) \qquad wh &amp; ere\qquad
+F_k(w)=\frac{1}{n_k}\sum_{i \in \mathcal{p_k}}f_i(w)
+\end{align}
+\]</span> 其中 <span class="math inline">\(n =
+\sum^{K}_{k=1}n_k\)</span></p>
+<p>如果将全部数据集随机均匀地分配到每个客户端中，即所有的<span
+class="math inline">\(\mathcal{P}_k\)</span>均为独立同分布的数据集，则有
+<span class="math inline">\(\mathbb{E}_{p_k}[F_k(w)] =
+f(w)\)</span>，等式左边表示的是关于分配给每个客户端的数据上的平均损失的期望。这是分布式优化算法采用的典型的独立同分布假设；作者考虑的是不满足独立同分布假设的情况（即,<span
+class="math inline">\(F_k\)</span>是一个对<span
+class="math inline">\(f\)</span>任意的糟糕的近似）。</p>
+<p>在数据中心存储的优化中，通信开销相对较小，计算开销占主导地位，最近很多研究工作强调使用GPU可以降低计算开销。相反，在联邦优化中，通信开销占主导地位—作者将上传带宽限制为1MB/s或更少。此外，客户段通常只有在充电、接通电源和未计费的Wi-Fi连接时才会参与优化。此外，作者希望每个客户端每天仅仅参与一小部分轮次的训练。另一方面，因为相比于全部数据，任何一个单一设备所具有的数据量较少，且现代手机有相对快的处理器（包括GPU），所以对于很多类型的模型，较之于通信开销，计算不是一个主要问题。因此，本文目的是使用额外的计算来减少训练模型所需通信的轮次。有两种基本的额外计算方法：</p>
+<ol type="1">
+<li>提高并行度，每两轮通信间，使用更多的独立工作的客户端；</li>
+<li>增加每个客户端的计算：每个客户端除了执行一个简单的计算（比如计算梯度），还要在每两轮通信间进行更复杂的计算；</li>
+</ol>
+<p>​
+作者研究了这两种方法，但是一旦使用了最低级别的客户端并行性，则主要通过在每个客户端上添加了更多的计算来实验加速（这里的加速指的是减少了通信轮次）。</p>
+<p><strong>相关工作</strong>：McDonald等人<a href="#fn1"
+class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>研究了通过迭代平均本地训练的模型来对感知机进行分布式训练，Povey等人<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>研究了语音识别深度神经网络的分布式训练，Zhang等人<a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>研究了使用“软”平均的异步训练方法。这些研究工作仅考虑了数据中心化背景（最多有16个工作节点，以及使用了快速传输网络）下的任务，并没有考虑具有数据不平衡且非独立同分布特点的联邦学习任务。作者使用这种风格（即迭代平均本地训练的模型）的算法来解决联邦学习问题，并且进行了适当的实验评估，基于这样的研究，提出与数据中心化设置中不同的问题，并且在联邦学习中这种算法需要结合不同的方法。</p>
+<p>与本文的研究动机相似，Neverova等人<a href="#fn4" class="footnote-ref"
+id="fnref4"
+role="doc-noteref"><sup>4</sup></a>也讨论了保护设备中的用户数据的隐私的优点。Shokri和Shmatikov的研究工作与本文研究工作有一些相似之处：他们关注于训练深度网络，<strong>强调隐私的重要性以及通过在每一轮通信中仅共享一部分参数，进而降低通信开销</strong>；然而，他们也没有考虑数据的不平衡以及非独立同分布性，并且他们的研究工作缺乏实验评估。</p>
+<p>在“凸”背景下，分布式优化和评估的问题被广泛研究，并且一些算法特别关注了通信效率。除了凸假设，已有的研究研究工作一般要求客户端数量远小于每个客户端的样本数量，这样在各个客户端之间数据（每个客户端的数据量相同）是独立同分布的。这些假设在联邦优化中均不成立。分布式随机梯度下降的异步形式也被应用于神经网络的训练中，例如：Dean等人<a
+href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a>的研究工作，但是这些方法要求在联邦学习中进行大量的更新。分布式共识算法[41]弱化了独立同分布假设，但是仍然没有解决在通信受限的条件下，大量客户端进行联邦学习的问题。</p>
+<p>作者认为（参数化）算法就是简单的one-shot（一次性）平均，其中每个客户端使得模型在本地数据集上的损失最小，通过平均这些模型来产生最终的全局模型。这种方法已经在凸情况以及数据独立同分布背景下被广泛研究，并且最坏的情况是，全局模型没有比单一客户端训练的模型更好。</p>
+<h2 id="联邦平均算法">联邦平均算法</h2>
+<p>最近深度学习取得巨大成功在很大程度上依赖于随机梯度下降优化算法及其变种；事实上，在很多应用方面的进步可以理解为，采用了易于使用梯度下降进行优化的模型结构（以及损失函数）<a
+href="#fn6" class="footnote-ref" id="fnref6"
+role="doc-noteref"><sup>6</sup></a>。因此，作者在构建联邦优化算法时自然地使用了随机梯度下降。</p>
+<p>随机梯度下降天然地可以被用于联邦优化，因为，每轮通信完成一次基于一个批次数据的梯度计算（在被随机选择的客户端上进行）。这种方法具有很高的计算效率，但是若想学习出好的模型，需要大量轮次的训练（甚至即使使用了一个如批次归一化的高级方法，Ioffe和Szegedy<a
+href="#fn7" class="footnote-ref" id="fnref7"
+role="doc-noteref"><sup>7</sup></a>构建手写数字识别的模型训练了50000轮，每次训练使用60个样本），作者在CIFAR-10数据集上的实验考虑了该基准（即训练出好的模型所需要的训练次数）。</p>
+<p>在联邦框架下，更多用户的参与几乎不会增加时间消耗，所以作者使用大批量同步随机梯度下降法做为对比的基准，因为Chen等人[8]的实验验证了该方法在数据中心化学习框架下可以达到很好的效果，且优于异步方法。为了在联邦学习中应用该方法，作者每轮选择<span
+class="math inline">\(C\)</span>比例的客户端，在这些客户端上基于全部数据计算损失函数的梯度值。因此，<span
+class="math inline">\(C\)</span>控制了全局批次大小，如果<span
+class="math inline">\(C=1\)</span>，那么意味着全批次梯度下降。作者称这种基线算法为联邦随机梯度下降。</p>
+<p>参数更新方式有两种, 一种典型的联邦随机梯度下降设置<span
+class="math inline">\(c=1\)</span> 以及一个固定的学习率<span
+class="math inline">\(\eta\)</span>：</p>
+<ol type="1">
+<li><strong>典型的联邦随机梯度下降</strong>第 <span
+class="math inline">\(k\)</span>个客户端计算梯度为 <span
+class="math inline">\(g_k = \bigtriangledown
+F_k(w_t)\)</span>，中心服务器聚合每个客户端计算的梯度以此来更新模型参数，即：</li>
+</ol>
+<p><span class="math display">\[
+\begin{align}
+w_{t+1} \gets w_t - \eta\sum_{k=1}^K\frac{n_k}{n}g_k = w_t -
+\eta\bigtriangledown f(w_t)
+\end{align}
+\]</span></p>
+<p>其中，$ _{k=1}^Kg_k = f(w_t)$</p>
+<ol start="2" type="1">
+<li><strong>另一种等价更新方法</strong>为，每个客户端给予本地数据分别各自对当前模型参数
+<span class="math inline">\(w_t\)</span>进行更新，即：</li>
+</ol>
+<p><span class="math display">\[
+\begin{align}
+w^k_{t+1} \gets w_t - \eta g_k
+\end{align}
+\]</span></p>
+<p>然后中心服务器对每个客户端更新后的参数进行加权平均： <span
+class="math display">\[
+\begin{align}
+w_{t+1} \gets \sum^{K}_{k=1}\frac{n_k}{n}w^k_{t+1}
+\end{align}
+\]</span>
+按照第二种参数更新方法，每个客户端可以独立地更新模型参数多次，然后再将更新好的参数发送给中心服务器进行加权平均。</p>
+<p>作者称这种方法为<strong>联邦平均（FedAvg）</strong>。算法的计算量与三个参数有关：</p>
+<ol type="1">
+<li><span
+class="math inline">\(C\)</span>：每轮训练选择客户端的比例；</li>
+<li><span
+class="math inline">\(E\)</span>：每个客户端更新参数的循环次数所设计的一个因子；</li>
+<li><span
+class="math inline">\(B\)</span>：客户端更新参数时，每次梯度下降所使用的数据量；</li>
+</ol>
+<p><img
+src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/v2-5108ab37b6110d1d962f10590a82a720_720w.webp" /></p>
+<p><strong><em>对于一般的非凸目标函数，在参数空间进行模型平均将得到一个较差的模型</em></strong>。</p>
+<p>根据Goodfellow等人<a href="#fn8" class="footnote-ref" id="fnref8"
+role="doc-noteref"><sup>8</sup></a>提出的方法，可以看到当平均两个针对手写数字识别模型[^
+3]（这两个模型从分别从不同的初始条件，如图1左图，进行训练）后，模型表现很差。对于图1对应的实验，参数模型<span
+class="math inline">\(w\)</span>和<span
+class="math inline">\(w^{&#39;}\)</span>的训练使用了MNIST数据集中的600个无重复的独立同分布样本。两个模型均使用随机梯度下降法进行训练，学习率为0.1，最小批次数据量为50，总共训练了240轮（即设
+<span class="math inline">\(E = 20\)</span>，本实验中其他设置为<span
+class="math inline">\(C=1\)</span>，<span
+class="math inline">\(B=50\)</span>中心服务器总共聚合了一次）。这大约是模型开始过度拟合其本地数据集的训练量。</p>
+<p><img
+src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/v2-9cd2921fc485fb85c4ce14d1c661e3dc_720w.webp" /></p>
+<p>图1：左图为，将两个参数模型<span
+class="math inline">\(w\)</span>和<span
+class="math inline">\(w^{&#39;}\)</span>进行加权平均，<span
+class="math inline">\(\theta w + (1 - \theta)w^{&#39;}\)</span>，<span
+class="math inline">\(\theta\)</span>的取值为在$ [−0.2,1.2] $
+内等间隔的取50个点，然后基于每个加权平均后的模型计算关于整个MNIST数据集的损失。参数模型
+<span class="math inline">\(w\)</span> 和 <span
+class="math inline">\(w^{&#39;}\)</span>
+分别在不同的小规模数据集上使用随机梯度下降法进行训练。作图的实验，使用了不同的随机种子对<span
+class="math inline">\(w\)</span>和<span
+class="math inline">\(w^{&#39;}\)</span>进行初始化。右图的实验，<strong>使用了相同的随机种子对<span
+class="math inline">\(w\)</span>和<span
+class="math inline">\(w^{&#39;}\)</span>进行了初始化</strong>。注意到左右两图的<span
+class="math inline">\(y\)</span>轴的尺度不同。对应于 <span
+class="math inline">\(\theta = 0\)</span> 和 <span
+class="math inline">\(\theta = 1\)</span>
+，图中灰色水平线标注了损失，此时相当于是单个模型的损失。<strong>通过设置两个模型参数相同的初始值，对模型进行平均可以显著减少模型关于整个训练集的损失（比单一模型的损失要好得多）</strong>。</p>
+<p>最近的研究表明，在实践中，足够过度参数化的神经网络的损耗，表面上会表现得非常好，特别是不太可能会出现不良的局部最小值。事实上，当从相同的随机初始参数值开始训练的两个模型，然后在不同的数据子集上独立训练每个模型（如上所述），发现朴素的参数平均法效果非常好（如图1右侧所示）。<strong>朴素的参数平均法为
+<span class="math inline">\(\frac{1}{2}w +
+\frac{1}{2}w^{&#39;}\)</span>，与其它加权平均方式相比，在MNIST训练集上实现了充分小的损失</strong>。虽然图1对应的实验从随机初始化开始，但请注意，每轮联邦平均都使用相同的起始模型参数值<span
+class="math inline">\(w_t\)</span>，因此该直觉（即使用相同的参数初始值，且使用朴素的参数平均法）同样适用。</p>
+<h2 id="实验部分">实验部分</h2>
+<p>作者在图像分类和语言模型两种任务上进行了实验，好的图像识别模型和语言模型可以提升移动设备的可用性。对于这些任务中的每一个，首先选择了一个足够大的代表性数据集，以便可以彻底研究联邦平均算法的超参数的影响。虽然每个单独的模型训练规模相对较小，但作者在实验中训练了2000多个单独的模型。然后，给出了基准数据集CIFAR-10的图像分类任务的结果。最后，在真实情况中，数据是被自然划分的。为了证明联邦平均算法在客户端上处理实际问题的有效性，作者在一个大型语言建模任务对算法进行了评估。</p>
+<p>作者的初始研究包括三种类型的模型和两个数据集，前两个模型是针对MNIST手写数字识别任务的：</p>
+<ol type="1">
+<li>拥有两个隐藏层，每层200个神经元的多层感知机模型，使用ReLu激活函数（总共有199210个参数），称该模型为“MNIST
+2NN”。</li>
+<li>拥有两个 5×5
+卷积层的CNN模型，第一层有32个通道，第二层有64个通道，每层卷积层后跟随有
+2×2
+的最大池化层，然后接一个拥有512个神经元的全连接层，使用ReLu激活函数，最后接一个softmax输出层（总共有1663370个参数）</li>
+</ol>
+<p>为了研究联邦优化，需要定制数据在各个客户端上的分布。作者研究了两种方法对MNIST数据在各个客户端上进行划分：一种是独立同分布，数据被打乱，然后给每个客户端分配600个样本，总共有100个客户端；另一种是非独立同分布，首先根据图像标签对数据进行排序，然后按序划分成200份，每份300个样本，然后给每个客户端分配两份数据集，总共有100个客户端。这是一种病态的数据非独立同分布划分方式，因为每个客户端仅有两类样本。因此，因此，这种做法可以探索本文所提算法在高度非IID数据上的表现。</p>
+<p>随机梯度下降对于学习率<span
+class="math inline">\(\theta\)</span>是敏感的。实验基于充分大范围的学习率进行多次训练（<strong><em>对<span
+class="math inline">\(\theta\)</span>值进行网格搜素，取了代表性的11-13个<span
+class="math inline">\(\theta\)</span>值</em></strong>）。作者检查确定了最优的学习率是在网格中间，并且最优学习率之间没有很大差别。除非另有说明，作者绘制的指标为，对于每个x轴的值单独选择最佳的学习率。实验表明，最优学习率随其他参数的变动相比变化不大。<strong><em>（即其他参数变化时，对应最优的学习率变化不大）</em></strong></p>
+<h3 id="提高并行度">提高并行度</h3>
+<p>首先使用<span class="math inline">\(C\)</span>比例的客户端进行实验,
+<span
+class="math inline">\(C\)</span>控制了多客户端的并行数量。表1给出了对于参数<span
+class="math inline">\(C\)</span>对两种MNIST模型的影响。作者列出了为在测试集上实现目标准确率所需要的通信次数。为了获得该实验结果，作者对每种参数的组合设置均进行了实验，并且绘制了测试准确率关于这些参数的变化曲线，使用上述方法选取<span
+class="math inline">\(\theta\)</span>的值，然后通过采用可以使得测试集上的精度达到最佳的取值，使每条曲线单调递增。然后，计算了每条曲线对应的参数设置达到目标准确率时所对应的通信次数，在形成曲线的离散点之间使用线性插值（为了使曲线与目标精度的水平线有交点）。具体如图2所示，其中灰色水平线表示了目标精度。</p>
+<p>当 <span class="math inline">\(B =
+\infty\)</span>（此时对于MNIST而言，每个客户端每轮均使用本地全部的600个样本进行参数更新）时，客户端的数量比例的增加仅能使模型效果小幅度提升。当设置<span
+class="math inline">\(B = 10\)</span> ，即取较小值时，当<span
+class="math inline">\(C \geq
+0.1\)</span>时，模型效果有了显著提升，尤其是在非独立同分布的情况下。基于这些结果，对于接下来的大部分实验，实验固定<span
+class="math inline">\(C =
+0.1\)</span>，该值较好的权衡了通信效率和收敛效率。通过比较<span
+class="math inline">\(B= \infty\)</span>与<span class="math inline">\(B=
+10\)</span>两种情况，表1的结果显示，通信次数有明显下降，本文接下来会对此进行研究。</p>
+<p><img
+src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/v2-28b49cf2ba1d39b45547f922a5d07262_720w.webp" /></p>
+<p>表1：<span
+class="math inline">\(C\)</span>的取值对于模型的影响。在“2NN”模型中设置
+<span class="math inline">\(E=1\)</span>，在CNN模型中，设置 <span
+class="math inline">\(E=5\)</span>。注意 <span class="math inline">\(C =
+0.0\)</span>对应着每轮仅选择一个客户端参与训练，因为实验对于MNIST数据集使用了100个客户端，每行实验结果对应于每轮选择1，10，20，50和100个客户端参与训练。表格中的每一项的值代表了在对应参数设置下，实现目标精度（“2NN”模型的目标精度为97%，CNN模型的目标精度为99%）所需的通信次数，每一项括号中的值表示
+<span class="math inline">\(C=0\)</span>时的通信次数与对应<span
+class="math inline">\(C\)</span>值的通信次数的比值。表中有5种情况（每次使用较大数量的客户端参与训练），模型在允许的时间内未达到目标精度。</p>
+<h3 id="增加每个客户端的计算量">增加每个客户端的计算量</h3>
+<p>在本节，固定<span class="math inline">\(C=
+0.1\)</span>并且为参与每轮训练的客户端增加更多的计算量，或者降低<span
+class="math inline">\(B\)</span>，或者提高<span
+class="math inline">\(E\)</span>，或者两者均有。图2描绘了在每轮训练中，当每个客户端对参数进行多次局部随机梯度下降时，可以使通信开销显著降低，表2量化了这种提升。每个客户端每轮期望的参数更新次数为<span
+class="math inline">\(\mu=\frac{E}{B}\mathbb{E}[n_k] =
+\frac{nE}{KB}\)</span>。在表2中对按照该统计值（即<span
+class="math inline">\(\mu\)</span>）对行进行排序。可以看到改变<span
+class="math inline">\(B\)</span>和<span
+class="math inline">\(E\)</span>对<span
+class="math inline">\(\mu\)</span>的提升是有效的。当<span
+class="math inline">\(B\)</span>足够大，可以充分利用客户端硬件上可用的并行性来降低计算时间，因此，在实践中，这应该是首先被调整的参数。</p>
+<p><img
+src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/v2-88e026331b43411b37718853b41cfb4f_720w.webp" /></p>
+<p>表2：联邦平均算法与联邦随机梯度下降算法在达到目标精度所需的通信次数方面的比较（第一行设置<span
+class="math inline">\(E=1\)</span>, <span
+class="math inline">\(B=\infty\)</span>）。<span
+class="math inline">\(\mu\)</span>这一列值的计算公式为<span
+class="math inline">\(\mu =
+\frac{En}{KB}\)</span>，为每轮训练中，客户端进行本地参数更新的次数。</p>
+<p>对于MNIST数据集独立同分布的划分方式，在最终达到目标精度的前提下，每轮训练更新参数更多次将会使得通信次数降低，对于CNN降低了35倍，对于2NN降低了46倍（2NN的实验结果具体见附录A的表四）。但在病态非独立同分布情况下，该降低倍数是较小的，但是仍然有CNN达到了2.8倍和2NN达到了3.7倍。当朴素的将完全由不同数据集（每个数据集包含两个手写数字类）训练出的模型参数平均，可以带来很大的好处。因此，可以看到这个实验结果是联邦平均算法对于非独立同分数据情况下，表现鲁棒的证据。</p>
+<p>本文实验部分展示了联邦学习具有实用性，因为联邦平均可以使用相对少的通信次数就可以得到一个高质量模型，不同模型结构的实验结果均证明了这一结论，包括多层感知机，两个不同的卷积神经网络，一个两层的字符LSTM，和一个大规模词级别的LSTM。</p>
+<p>虽然联邦学习有助于保护隐私，但可以基于差分隐私、安全多方计算
+，或它们的组合可以具备更强的隐私保护，这是未来工作的研究方向。注意这类技术可以很自然的应用在同步算法上，如联邦平均，在这项工作完成之后，Bonawitz等人<a
+href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a>介绍了一种对于联邦学习而言有效的安全聚合协议，并且Konecny等人<a
+href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a>提出了一种算法可以进一步降低通信开销。</p>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Ryan McDonald, Keith Hall, and Gideon Mann. Distributed
+training strategies for the structured perceptron. In NAACL HLT, 2010.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Daniel Povey, Xiaohui Zhang, and Sanjeev
+Khudanpur.Parallel training of deep neural networks with natural
+gradient and parameter averaging. In ICLR Workshop Track, 2015.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Sixin Zhang, Anna E Choromanska, and Yann LeCun.Deep
+learning with elastic averaging sgd. In NIPS. 2015.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Natalia Neverova, Christian Wolf, Griffin Lacey, Lex
+Fridman, Deepak Chandra, Brandon Barbello, and Graham W. Taylor.
+Learning human identity from motion patterns. IEEE Access, 4:1810–1820,
+2016.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Jeffrey Dean, Greg S. Corrado, Rajat Monga, KaiChen,
+Matthieu Devin, Quoc V. Le, Mark Z. Mao, Marc’Aurelio Ranzato, Andrew
+Senior, Paul Tucker, Ke Yang, and Andrew Y. Ng. Large scale distributed
+deep networks. In NIPS, 2012.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Ian Goodfellow, Yoshua Bengio, and Aaron Courville. Deep
+learning. Book in preparation for MIT Press, 2016.<a href="#fnref6"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Sergey Ioffe and Christian Szegedy. Batch normalization:
+Accelerating deep network training by reducing internal covariate shift.
+In ICML, 2015.<a href="#fnref7" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Ian J. Goodfellow, Oriol Vinyals, and Andrew M.
+Saxe.Qualitatively characterizing neural network optimization problems.
+In ICLR, 2015.<a href="#fnref8" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Keith Bonawitz, Vladimir Ivanov, Ben Kreuter, Antonio
+Marcedone, H. Brendan McMahan, Sarvar Patel,Daniel Ramage, Aaron Segal,
+and Karn Seth. Practicalsecure aggregation for federated learning on
+user-held data. In NIPS Workshop on Private Multi-Party Machine
+Learning, 2016.<a href="#fnref9" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Jakub Konecnˇ y, H. Brendan McMahan, Felix X. Yu,
+´Peter Richtarik, Ananda Theertha Suresh, and Dave Bacon. Federated
+learning: Strategies for improving communication efficiency. In NIPS
+Workshop on Private Multi-Party Machine Learning, 2016.<a
+href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://xinyudu.cn">小杜老公</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://xinyudu.cn/2023/11/30/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-01/">http://xinyudu.cn/2023/11/30/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://xinyudu.cn" target="_blank">喜欢小杜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B0%8F%E5%88%98%E7%9A%84/">小刘的</a><a class="post-meta__tags" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a><a class="post-meta__tags" href="/tags/%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0/">联邦学习</a></div><div class="post_share"><div class="social-share" data-image="/img/default_cover.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/02/VHDL%E5%8A%A0%E6%B3%95%E5%99%A8%E5%87%86%E5%A4%87/" title="VHDL加法器准备"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/F16D808895D92E6ED21170D8F287122A.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">VHDL加法器准备</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/29/%E7%AC%AC%E5%8D%81%E4%BA%94%E6%AC%A1%E8%AF%BE/" title="第十五次课-状态分配"><img class="cover" src="/img/default_cover.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">第十五次课-状态分配</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/20/golang%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84web%E6%A1%86%E6%9E%B6/" title="golang实现简单的web框架"><img class="cover" src="/img/default_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-20</div><div class="title">golang实现简单的web框架</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/head.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">小杜老公</div><div class="author-info__description">这是我和小杜的博客网站</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Liuwenhai666" target="_blank" title="Github"><i class="fab fa-github" style="color: #464E47;"></i></a><a class="social-icon" href="https://gitee.com/?from=osc-index" target="_blank" title="Gitee"><i class="fa-brands fa-gitter" style="color: #464E47;"></i></a><a class="social-icon" href="mailto:wenhai-liu@ncepu.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #464E47;"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=3XIm_jkz9RxfLq2MfNNv0deYh492fu_n" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #464E47;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8-01communication-efficient-learning-of-deep-networks-from-decentralized-data"><span class="toc-number">1.</span> <span class="toc-text">联邦学习入门-01(Communication-Efficient
+Learning of Deep Networks from Decentralized Data)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E8%81%94%E9%82%A6%E5%AD%A6%E4%B9%A0%E6%9C%89%E5%A6%82%E4%B8%8B%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">联邦学习：联邦学习有如下的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E7%A7%81"><span class="toc-number">1.2.</span> <span class="toc-text">隐私</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E9%82%A6%E4%BC%98%E5%8C%96"><span class="toc-number">1.3.</span> <span class="toc-text">联邦优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%94%E9%82%A6%E5%B9%B3%E5%9D%87%E7%AE%97%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">联邦平均算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E9%83%A8%E5%88%86"><span class="toc-number">1.5.</span> <span class="toc-text">实验部分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E5%B9%B6%E8%A1%8C%E5%BA%A6"><span class="toc-number">1.5.1.</span> <span class="toc-text">提高并行度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E6%AF%8F%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E8%AE%A1%E7%AE%97%E9%87%8F"><span class="toc-number">1.5.2.</span> <span class="toc-text">增加每个客户端的计算量</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/02/%E7%AC%AC8%E7%AB%A0-%E6%9F%A5%E6%89%BE%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第8章-查找表--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第8章-查找表--数据结构"/></a><div class="content"><a class="title" href="/2024/01/02/%E7%AC%AC8%E7%AB%A0-%E6%9F%A5%E6%89%BE%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第8章-查找表--数据结构">第8章-查找表--数据结构</a><time datetime="2024-01-02T09:27:10.000Z" title="发表于 2024-01-02 17:27:10">2024-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/01/%E7%AC%AC7%E7%AB%A0-%E5%9B%BE--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第7章-图--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第7章-图--数据结构"/></a><div class="content"><a class="title" href="/2024/01/01/%E7%AC%AC7%E7%AB%A0-%E5%9B%BE--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第7章-图--数据结构">第7章-图--数据结构</a><time datetime="2024-01-01T14:07:55.000Z" title="发表于 2024-01-01 22:07:55">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/01/%E7%AC%AC6%E7%AB%A0-%E6%A0%91--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第6章-树--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第6章-树--数据结构"/></a><div class="content"><a class="title" href="/2024/01/01/%E7%AC%AC6%E7%AB%A0-%E6%A0%91--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第6章-树--数据结构">第6章-树--数据结构</a><time datetime="2024-01-01T13:07:55.000Z" title="发表于 2024-01-01 21:07:55">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/01/%E7%AC%AC5%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第5章-字符串--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第5章-字符串--数据结构"/></a><div class="content"><a class="title" href="/2024/01/01/%E7%AC%AC5%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第5章-字符串--数据结构">第5章-字符串--数据结构</a><time datetime="2024-01-01T12:07:55.000Z" title="发表于 2024-01-01 20:07:55">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/31/%E7%AC%AC4%E7%AB%A0-%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第4章-数组和广义表--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第4章-数组和广义表--数据结构"/></a><div class="content"><a class="title" href="/2023/12/31/%E7%AC%AC4%E7%AB%A0-%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第4章-数组和广义表--数据结构">第4章-数组和广义表--数据结构</a><time datetime="2023-12-31T12:07:55.000Z" title="发表于 2023-12-31 20:07:55">2023-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 小杜老公</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><span>冀ICP备2023034833号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="I love you,愛してます,Ti Amo,Miluji te,chit pa de,あいしてる,사랑해,saya Cinta Mu,Volim Te,kia hoahai,Szeretlek,Tave Myliu" data-fontsize="22px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

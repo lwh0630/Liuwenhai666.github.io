@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>vhdl秒表代码注释-第一部分 | 喜欢小杜</title><meta name="author" content="小杜老公"><meta name="copyright" content="小杜老公"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="vhdl秒表代码 关键字 architecture 结构体描述设计实体内部的特性。结构体的书写格式如下：  architecture 结构名字 of 实体名 is: 内部信号、常量、数据类型、函数等的定义; begin: 若干并行执行语句，具体描述结构体的功能和行为。 end 结构体名;   结构体内要求使用并行执行语句。 类似 if 之类的顺序执行语句，只要将它们放在进程语">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vhdl秒表代码注释-第一部分">
+<meta property="og:url" content="http://xinyudu.cn/2023/11/20/vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/index.html">
+<meta property="og:site_name" content="喜欢小杜">
+<meta property="og:description" content="vhdl秒表代码 关键字 architecture 结构体描述设计实体内部的特性。结构体的书写格式如下：  architecture 结构名字 of 实体名 is: 内部信号、常量、数据类型、函数等的定义; begin: 若干并行执行语句，具体描述结构体的功能和行为。 end 结构体名;   结构体内要求使用并行执行语句。 类似 if 之类的顺序执行语句，只要将它们放在进程语">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg">
+<meta property="article:published_time" content="2023-11-20T11:11:16.000Z">
+<meta property="article:modified_time" content="2024-04-23T09:53:04.287Z">
+<meta property="article:author" content="小杜老公">
+<meta property="article:tag" content="花自向阳开">
+<meta property="article:tag" content="小杜的">
+<meta property="article:tag" content="VHDL">
+<meta property="article:tag" content="数电">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://xinyudu.cn/2023/11/20/vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":600},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 小杜老公","link":"链接: ","source":"来源: 喜欢小杜","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vhdl秒表代码注释-第一部分',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-23 17:53:04'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/mystyle.css"><link rel="stylesheet" href="/css/font.css"><meta name="generator" content="Hexo 7.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/head.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Agreement/"><i class="fa-fw fa-solid fa-handshake"></i><span> 约定</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="喜欢小杜"><img class="site-icon" src="/img/nav.png"/><span class="site-name">喜欢小杜</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Agreement/"><i class="fa-fw fa-solid fa-handshake"></i><span> 约定</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">vhdl秒表代码注释-第一部分</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-20T11:11:16.000Z" title="发表于 2023-11-20 19:11:16">2023-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-23T09:53:04.287Z" title="更新于 2024-04-23 17:53:04">2024-04-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%8A%B1%E8%87%AA%E5%90%91%E9%98%B3%E5%BC%80/">花自向阳开</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%8A%B1%E8%87%AA%E5%90%91%E9%98%B3%E5%BC%80/%E6%95%B0%E7%94%B5VHDL/">数电VHDL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">841</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>2分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="vhdl秒表代码注释-第一部分"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="vhdl秒表代码">vhdl秒表代码</h1>
+<h2 id="关键字">关键字</h2>
+<h3 id="architecture">architecture</h3>
+<p>结构体描述设计实体内部的特性。结构体的书写格式如下：</p>
+<blockquote>
+<p>architecture 结构名字 of 实体名 is:
+内部信号、常量、数据类型、函数等的定义; begin:
+若干并行执行语句，具体描述结构体的功能和行为。 end 结构体名;</p>
+</blockquote>
+<ul>
+<li>结构体内要求使用<strong>并行执行语句</strong>。</li>
+<li>类似 <strong>if</strong> 之类的顺序执行语句，只要将它们放在进程语句
+<strong>process</strong> 语句之内即可。process语句是并行执行语句。</li>
+</ul>
+<h3 id="library">library</h3>
+<blockquote>
+<p>库用于存放预先编译好的程序包</p>
+<p>程序包中定义了数据结构体、操作逻辑和原件等。主要是声明在设计或者实体中将用到的常数，数据类型，原件，子程序等。</p>
+</blockquote>
+<h3 id="signal信号">signal信号</h3>
+<blockquote>
+<p>信号表示逻辑门的输入或者输出</p>
+<p>类似于连接线，也可以表达存储元件的状态。</p>
+<p>信号通常在结构体，程序包和实体中说明</p>
+</blockquote>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 信号定义语句： signal 信号名 : 数据类型 := 初始值</span></span><br><span class="line"><span class="keyword">signal</span> clock : <span class="built_in">bit</span> = <span class="string">&#x27;0&#x27;</span>; <span class="comment">-- 定义时钟信号的数据类型，初始值为0</span></span><br><span class="line"><span class="keyword">signal</span> count : <span class="built_in">BIT_VECTOR</span>(<span class="number">3</span> <span class="keyword">DOWNTO</span> <span class="number">0</span>); <span class="comment">-- 定义 count 为四位位矢量</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 信号赋值语句： 目标信号名 &lt;= 表达式;</span></span><br><span class="line">x &lt;= <span class="number">9</span>;</span><br><span class="line">Z &lt;= x <span class="keyword">after</span> <span class="number">5</span> ns; <span class="comment">-- 在 5ns 后将 x 赋值给 Z</span></span><br></pre></td></tr></table></figure>
+<h3 id="process">process</h3>
+<p>​
+process语句通常称之为进程语句，本质上他描述了一个功能独立的电路块；</p>
+<p>​ process语句是一个并行执行的语句，但是process内部是顺序执行语句</p>
+<blockquote>
+<p>[ 进程名: ] process (敏感信号1，敏感信号2，... ，敏感信号n) [
+若干变量说明语句 ] begin [ 若干顺序说明语句] end process [ 进程名 ];</p>
+</blockquote>
+<ul>
+<li>由于结构体中各并行执行语句都是独立的电路块，因此不允许两个或者两个以上的并行语句对对同一个信号赋值。</li>
+</ul>
+<h3 id="variable">variable</h3>
+<blockquote>
+<p>变量只能在进程语句、函数语句和过程语句结构中使用。变量的赋值是直接的，非预制的，分配给变量的值立即成为当前值，变量不能表达“连线”或者存储元件，不能设置传输延迟量</p>
+</blockquote>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 变量定义语句： variable 变量名 ：数据类型 := 初始值；</span></span><br><span class="line"><span class="keyword">variable</span> count : <span class="built_in">integer</span> <span class="number">0</span> <span class="keyword">to</span> <span class="number">255</span> := <span class="number">20</span>;</span><br><span class="line"><span class="comment">-- 定义变量 count 整数变量，变化范围是 2~255，出初始值是 20；</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 变量赋值语句： 变量名 := 表达式</span></span><br><span class="line">x := <span class="number">10.0</span>;</span><br><span class="line">y = <span class="number">1.5</span> + x;</span><br><span class="line">A(<span class="number">3</span> <span class="keyword">to</span> <span class="number">6</span>) := (<span class="string">&quot;1101&quot;</span>); <span class="comment">-- 一个矢量的赋值</span></span><br></pre></td></tr></table></figure>
+<h2 id="数据类型转换">数据类型转换</h2>
+<p>​ VHDL 是强定义类型语言，不同类型的数据不能进行运算和直接赋值</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 类型表记法</span></span><br><span class="line"><span class="keyword">variable</span> A : <span class="built_in">integer</span>;</span><br><span class="line"><span class="keyword">variable</span> B : real;</span><br><span class="line"><span class="comment">-- real 实数</span></span><br><span class="line">A = <span class="built_in">integer</span>(B);</span><br><span class="line">B = real(A);</span><br></pre></td></tr></table></figure>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 函数法</span></span><br><span class="line">Conv_Integer(A);</span><br><span class="line"><span class="comment">-- 由 std_logic 转换为 integer 类型，在 std_logic_unsigned 包中。</span></span><br></pre></td></tr></table></figure>
+<h2 id="常用语句">常用语句</h2>
+<h3 id="case">case</h3>
+<blockquote>
+<p>case
+语句是顺序执行语句，常用于描述总线的行为、编译器和译码器的结构以及状态机等等。case
+语句的可读性好，非常简洁4</p>
+</blockquote>
+<blockquote>
+<p>case 条件表达式 is: when 条件表达式值1 =&gt; 若干顺序执行语句 when
+条件表达式值2 =&gt; 若干顺序执行语句 ...... when 条件表达式值n =&gt;
+若干顺序执行语句 when others =&gt; 若干顺序执行语句 end case;</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://xinyudu.cn">是小杜呀</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://xinyudu.cn/2023/11/20/vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/">http://xinyudu.cn/2023/11/20/vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A-%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://xinyudu.cn" target="_blank">喜欢小杜</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%8A%B1%E8%87%AA%E5%90%91%E9%98%B3%E5%BC%80/">花自向阳开</a><a class="post-meta__tags" href="/tags/%E5%B0%8F%E6%9D%9C%E7%9A%84/">小杜的</a><a class="post-meta__tags" href="/tags/VHDL/">VHDL</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E7%94%B5/">数电</a></div><div class="post_share"><div class="social-share" data-image="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/24/%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AC%A1%E8%AF%BE/" title="第十三次课-同步时序逻辑电路初始状态图/表"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/image-20231122094218323.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">第十三次课-同步时序逻辑电路初始状态图/表</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/25/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="markdown基本使用"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/F16D808895D92E6ED21170D8F287122A.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">markdown基本使用</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/02/VHDL%E5%8A%A0%E6%B3%95%E5%99%A8%E5%87%86%E5%A4%87/" title="VHDL加法器准备"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/F16D808895D92E6ED21170D8F287122A.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-02</div><div class="title">VHDL加法器准备</div></div></a></div><div><a href="/2023/10/25/markdown%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="markdown基本使用"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/F16D808895D92E6ED21170D8F287122A.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-25</div><div class="title">markdown基本使用</div></div></a></div><div><a href="/2023/11/24/%E7%AC%AC%E5%8D%81%E4%B8%89%E6%AC%A1%E8%AF%BE/" title="第十三次课-同步时序逻辑电路初始状态图&#x2F;表"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/image-20231122094218323.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-24</div><div class="title">第十三次课-同步时序逻辑电路初始状态图&#x2F;表</div></div></a></div><div><a href="/2023/11/29/%E7%AC%AC%E5%8D%81%E4%BA%94%E6%AC%A1%E8%AF%BE/" title="第十五次课-状态分配"><img class="cover" src="/img/default_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-29</div><div class="title">第十五次课-状态分配</div></div></a></div><div><a href="/2023/11/24/%E7%AC%AC%E5%8D%81%E5%9B%9B%E6%AC%A1%E8%AF%BE/" title="第十四次课-同步时序逻辑电路化简状态"><img class="cover" src="/img/default_cover.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-24</div><div class="title">第十四次课-同步时序逻辑电路化简状态</div></div></a></div><div><a href="/2023/12/08/%E5%A4%A7%E7%89%A9%E6%9C%9F%E6%9C%AB%E7%A1%AC%E8%AE%B0/" title="大物期末硬记"><img class="cover" src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-08</div><div class="title">大物期末硬记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/head.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">小杜老公</div><div class="author-info__description">这是我和小杜的博客网站</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Liuwenhai666" target="_blank" title="Github"><i class="fab fa-github" style="color: #464E47;"></i></a><a class="social-icon" href="https://gitee.com/?from=osc-index" target="_blank" title="Gitee"><i class="fa-brands fa-gitter" style="color: #464E47;"></i></a><a class="social-icon" href="mailto:wenhai-liu@ncepu.edu.cn" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #464E47;"></i></a><a class="social-icon" href="https://qm.qq.com/cgi-bin/qm/qr?k=3XIm_jkz9RxfLq2MfNNv0deYh492fu_n" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #464E47;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vhdl%E7%A7%92%E8%A1%A8%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">vhdl秒表代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">1.1.</span> <span class="toc-text">关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#architecture"><span class="toc-number">1.1.1.</span> <span class="toc-text">architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#library"><span class="toc-number">1.1.2.</span> <span class="toc-text">library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#signal%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.1.3.</span> <span class="toc-text">signal信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#process"><span class="toc-number">1.1.4.</span> <span class="toc-text">process</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#variable"><span class="toc-number">1.1.5.</span> <span class="toc-text">variable</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.2.</span> <span class="toc-text">数据类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.3.</span> <span class="toc-text">常用语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#case"><span class="toc-number">1.3.1.</span> <span class="toc-text">case</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/02/%E7%AC%AC8%E7%AB%A0-%E6%9F%A5%E6%89%BE%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第8章-查找表--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第8章-查找表--数据结构"/></a><div class="content"><a class="title" href="/2024/01/02/%E7%AC%AC8%E7%AB%A0-%E6%9F%A5%E6%89%BE%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第8章-查找表--数据结构">第8章-查找表--数据结构</a><time datetime="2024-01-02T09:27:10.000Z" title="发表于 2024-01-02 17:27:10">2024-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/01/%E7%AC%AC7%E7%AB%A0-%E5%9B%BE--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第7章-图--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第7章-图--数据结构"/></a><div class="content"><a class="title" href="/2024/01/01/%E7%AC%AC7%E7%AB%A0-%E5%9B%BE--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第7章-图--数据结构">第7章-图--数据结构</a><time datetime="2024-01-01T14:07:55.000Z" title="发表于 2024-01-01 22:07:55">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/01/%E7%AC%AC6%E7%AB%A0-%E6%A0%91--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第6章-树--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第6章-树--数据结构"/></a><div class="content"><a class="title" href="/2024/01/01/%E7%AC%AC6%E7%AB%A0-%E6%A0%91--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第6章-树--数据结构">第6章-树--数据结构</a><time datetime="2024-01-01T13:07:55.000Z" title="发表于 2024-01-01 21:07:55">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/01/%E7%AC%AC5%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第5章-字符串--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第5章-字符串--数据结构"/></a><div class="content"><a class="title" href="/2024/01/01/%E7%AC%AC5%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2--%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第5章-字符串--数据结构">第5章-字符串--数据结构</a><time datetime="2024-01-01T12:07:55.000Z" title="发表于 2024-01-01 20:07:55">2024-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/31/%E7%AC%AC4%E7%AB%A0-%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第4章-数组和广义表--数据结构"><img src="https://blog-1313503696.cos.ap-nanjing.myqcloud.com/blog/c44e6da9cdb5a4b7c59e43115d87c96.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="第4章-数组和广义表--数据结构"/></a><div class="content"><a class="title" href="/2023/12/31/%E7%AC%AC4%E7%AB%A0-%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="第4章-数组和广义表--数据结构">第4章-数组和广义表--数据结构</a><time datetime="2023-12-31T12:07:55.000Z" title="发表于 2023-12-31 20:07:55">2023-12-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By 小杜老公</div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn"><span>冀ICP备2023034833号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="I love you,愛してます,Ti Amo,Miluji te,chit pa de,あいしてる,사랑해,saya Cinta Mu,Volim Te,kia hoahai,Szeretlek,Tave Myliu" data-fontsize="22px" data-random="true" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
